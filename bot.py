@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import telebot
 from telebot import TeleBot, types
 from telebot.custom_filters import TextFilter, TextMatchFilter
@@ -7,7 +6,6 @@ TOKEN = None
 
 with open("token") as f:
     TOKEN = f.read().strip()
-
 
 
 bot = telebot.TeleBot(TOKEN)
@@ -23,24 +21,10 @@ def send_welcome(message):
 def echo_l(message):
     if message.text == 'Слава Україні':
         bot.send_message(message.chat.id, 'Героям слава!!!')
-    elif message.text == 'Glory':
+    elif message.text == 'Glory for Ukraine':
         bot.send_message(message, 'Glory for heroes!!!')
     else:
         bot.reply_to(message, message.text)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

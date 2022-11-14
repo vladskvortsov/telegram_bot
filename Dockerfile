@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER vladskvortsov
 
-COPY bot.py requirements.txt /telegram_bot/
+COPY bot.py requirements.txt token /telegram_bot/
 
 WORKDIR /telegram_bot
 
