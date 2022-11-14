@@ -1,6 +1,5 @@
 # This workflow will build and push a new container image to Amazon ECR,
 # and then will deploy a new task definition to Amazon ECS, when there is a push to the "master" branch.
-repository-name my-ecr-repo --region us-east-2`.
 #    Replace the value of the `ECR_REPOSITORY` enviro#
 # To use this workflow, you will need to complete the following set-up steps:
 #
@@ -29,10 +28,9 @@ name: Deploy to Amazon EC2
 on:
   push:
     branches: [ "master" ]
-​
-29
+
 on:
-env:
+ env:
   AWS_REGION: eu-west-2b                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: telegram_bot_repo           # set this to your Amazon ECR repository name
   ECS_SERVICE: telegram_bot-service                 # set this to your Amazon ECS service name
