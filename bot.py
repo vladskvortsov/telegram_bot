@@ -16,13 +16,13 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "How are you doing?")
+    bot.reply_to(message, "Як ся маєте?")
 
 
 @bot.message_handler(content_types=['text'])
 def echo_l(message):
-    if message.text == 'Glory for Ukraine':
-        bot.send_message(message.chat.id, 'Glory for heroes!')
+    if message.text == 'Слава Україні':
+        bot.send_message(message.chat.id, 'Героям слава!!!')
     elif message.text == 'Glory':
         bot.send_message(message, 'Glory for heroes!!!')
     else:
@@ -49,8 +49,6 @@ def echo_l(message):
 @bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
 def contains_handler(message: types.Message):
     bot.reply_to(message, 'Так, дійсно вибухи')
-
-
 
 
 
