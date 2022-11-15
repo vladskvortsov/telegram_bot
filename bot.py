@@ -1,6 +1,7 @@
-import telebot
+import telebot, time
 from telebot import TeleBot, types
-from telebot.custom_filters import TextFilter, TextMatchFilter
+from telebot.custom_filters import TextFilter, TextMatchFilter, IsReplyFilter
+
 
 TOKEN = None
 
@@ -14,15 +15,25 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "Як ся маєте?")
+    bot.reply_to(message, "Добрий вечір")
+
+
+
+
+@bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
+def contains_handler(message: types.Message):
+#    bot.send_message(message.chat.id, 'Так, дійсно вибухи')
+    bot.reply_to(message, 'Так, дійсно вибухи')
 
 
 @bot.message_handler(content_types=['text'])
-def echo_l(message):
+def echo_all(message):
     if message.text == 'Слава Україні':
-        bot.send_message(message.chat.id, 'Героям слава!!!')
+        bot.send_message(message.chat.id, 'Героям слава!')
+        time.sleep(2)
+        bot.send_message(message.chat.id, 'І смерть клятим ворогам!!!')
     elif message.text == 'Glory for Ukraine':
-        bot.send_message(message, 'Glory for heroes!!!')
+        bot.send_message(message.chat.id, 'Glory for heroes!!!')
     else:
         bot.reply_to(message, message.text)
 
@@ -30,12 +41,14 @@ def echo_l(message):
 
 
 
-@bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
-def contains_handler(message: types.Message):
-    bot.reply_to(message, 'Так, дійсно вибухи')
+
+
+
+
 
 
 
 if __name__ == '__main__':
     bot.add_custom_filter(TextMatchFilter())
-    bot.infinity_polling(none_stop=True)
+    bot.add_custom_filter(IsReplyFilter())
+    bot.infinity_polling()
