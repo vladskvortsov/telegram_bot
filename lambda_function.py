@@ -39,15 +39,6 @@ def echo_all(message):
 
 
 
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     bot.add_custom_filter(TextMatchFilter())
     bot.add_custom_filter(IsReplyFilter())
