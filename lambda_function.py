@@ -8,7 +8,7 @@ TOKEN = None
 with open("token") as f:
     TOKEN = f.read().strip()
 
-def lambda_handler(event, context):
+#def lambda_handler(event, context):
     
     
 bot = telebot.TeleBot(TOKEN)
@@ -29,7 +29,7 @@ bot = telebot.TeleBot(TOKEN)
 
 
  @bot.message_handler(content_types=['text'])
- def echo_all(message):
+ def lambda_handler(message):
     if message.text == 'Слава Україні':
         bot.send_message(message.chat.id, 'Героям слава!')
         time.sleep(2)
