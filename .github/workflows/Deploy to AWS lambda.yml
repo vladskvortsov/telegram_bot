@@ -14,7 +14,8 @@ jobs:
       with:
         
         lambda_function_name: 'telegram_bot'
- #       requirements_txt: 'requirements.txt'
+        lambda_layer_arn: 'arn:aws:lambda:eu-west-2:202493254979:function:telegram_bot'
+        requirements_txt: 'requirements.txt'
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
