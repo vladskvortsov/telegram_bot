@@ -1,3 +1,4 @@
+name: deploy-py-lambda
 on:
   push:
     branches:
@@ -9,15 +10,13 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Deploy code to Lambda
-      uses: qubitro/action-lambda-python-zip@v1.0
+      uses: mariamrf/py-lambda-action@v1.0.0
       with:
+        
         lambda_function_name: 'telegram_bot'
-        requirements_txt: 'requirements.txt'
+ #       requirements_txt: 'requirements.txt'
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: 'eu-west-2'
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN}}
-
-
-
