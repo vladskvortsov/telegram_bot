@@ -18,7 +18,7 @@ bot = telebot.TeleBot(TOKEN)
  
 
 
- @bot.message_handler(content_types=['text'])
+ #@bot.message_handler(content_types=['text'])
  def lambda_handler(message):
     if message.text == 'Слава Україні':
         bot.send_message(message.chat.id, 'Героям слава!')
