@@ -15,17 +15,7 @@ bot = telebot.TeleBot(TOKEN)
 
 
 
- @bot.message_handler(commands=['start', 'help'])
- def send_welcome(message):
-    bot.reply_to(message, "Добрий вечір")
-
-
-
-
- @bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
- def contains_handler(message: types.Message):
-#    bot.send_message(message.chat.id, 'Так, дійсно вибухи')
-    bot.reply_to(message, 'Так, дійсно вибухи')
+ 
 
 
  @bot.message_handler(content_types=['text'])
