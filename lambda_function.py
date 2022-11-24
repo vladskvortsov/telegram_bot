@@ -8,26 +8,28 @@ TOKEN = None
 with open("token") as f:
     TOKEN = f.read().strip()
 
-
+def lambda_handler(event, context):
+    
+    
 bot = telebot.TeleBot(TOKEN)
 
 
 
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
+ @bot.message_handler(commands=['start', 'help'])
+ def send_welcome(message):
     bot.reply_to(message, "Добрий вечір")
 
 
 
 
-@bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
-def contains_handler(message: types.Message):
+ @bot.message_handler(text=TextFilter(contains=['Вибухи', 'вибухи']))
+ def contains_handler(message: types.Message):
 #    bot.send_message(message.chat.id, 'Так, дійсно вибухи')
     bot.reply_to(message, 'Так, дійсно вибухи')
 
 
-@bot.message_handler(content_types=['text'])
-def echo_all(message):
+ @bot.message_handler(content_types=['text'])
+ def echo_all(message):
     if message.text == 'Слава Україні':
         bot.send_message(message.chat.id, 'Героям слава!')
         time.sleep(2)
