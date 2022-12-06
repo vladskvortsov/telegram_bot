@@ -12,7 +12,7 @@ jobs:
     - name: Deploy code to Lambda
       uses: mariamrf/py-lambda-action@v1.0.0
       with:
-        lambda_layer_arn: 'arn:aws:lambda:eu-west-2:202493254979:layer:custom'
+#        lambda_layer_arn: 'arn:aws:lambda:eu-west-2:202493254979:layer:custom'
         lambda_function_name: 'telegram_bot'
         requirements_txt: 'requirements.txt'
       env:
