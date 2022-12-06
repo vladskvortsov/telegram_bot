@@ -1,4 +1,4 @@
-import telebot, time
+import telebot#, time
 from telebot import TeleBot, types
 from telebot.custom_filters import TextFilter, TextMatchFilter, IsReplyFilter
 
@@ -30,7 +30,7 @@ def contains_handler(message: types.Message):
 def echo_all(message):
     if message.text == 'Слава Україні':
         bot.send_message(message.chat.id, 'Героям слава!')
-        time.sleep(2)
+#        time.sleep(2)
         bot.send_message(message.chat.id, 'І смерть клятим ворогам!!!')
     elif message.text == 'Glory for Ukraine':
         bot.send_message(message.chat.id, 'Glory for heroes!!!')
