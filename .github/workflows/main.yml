@@ -39,6 +39,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
 
-
+            sudo docker login docker.io -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }
             sudo docker run -d -p 5000:5000 vladskvortsov/telegram_bot:latest
 
