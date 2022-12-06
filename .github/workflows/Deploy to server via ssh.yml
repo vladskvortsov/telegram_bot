@@ -39,6 +39,14 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
 
+            
+            apt-get install -y apt-utils sudo apt-transport-https ca-certificates curl software-properties-common
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+            add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+            apt-get update -y
+            apt-get install -y docker-ce docker-ce-cli containerd.io
+            
             sudo docker login docker.io -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+            sudo docker pull vladskvortsov/telegram_bot:latest
             sudo docker run -d -p 5000:5000 vladskvortsov/telegram_bot:latest
 
