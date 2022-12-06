@@ -18,8 +18,9 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: 'eu-west-2'
           function_name: 'telegram_bot'
-          requirements_txt: 'requirements.txt'
-          source: lambda-function/task-definition.json          
+#          requirements_txt: 'requirements.txt'
+          source: lambda-function/lambda_function.py          
+        env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN}}
 
 
