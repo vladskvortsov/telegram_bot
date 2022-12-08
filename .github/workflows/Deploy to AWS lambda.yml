@@ -1,34 +1,23 @@
-name: Deploy Lambda
-
+name: deploy to lambda
 on:
   push:
     branches:
       - master
-
 jobs:
-  deploy-lambda:
+
+  deploy_source:
+    name: deploy lambda from source
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - run: zip lambda.zip lambda-function/lambda_function.py
-      - uses: yvesgurcan/deploy-lambda-function@master
+      - name: checkout source code
+        uses: actions/checkout@v1
+      - name: default deploy
+        uses: appleboy/lambda-action@master
         with:
-          package: lambda.zip
-          function-name: 'telegram_bot'
-          AWS_REGION: 'eu-west-2'
-          AWS_SECRET_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-#          requirements_txt: 'requirements.txt'    
-#        env:
-#          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN}}
-
-
-
-
-
-
-
-
-
-
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: 'eu-west-2'
+          function_name: 'telegram_bot'
+#          requirements_txt: 'requirements.txt'
+          source: lambda-function/lambda_function.py   
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN}}
