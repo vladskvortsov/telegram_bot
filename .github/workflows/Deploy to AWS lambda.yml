@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - run: zip lambda.zip /lambda-function/
+      - run: zip lambda.zip /lambda-function/lambda_function.py
       - uses: yvesgurcan/deploy-lambda-function@master
         with:
           package: lambda.zip
