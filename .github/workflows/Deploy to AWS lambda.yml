@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - run: zip lambda.zip /lambda-function/
-      - uses: yvesgurcan/deploy-lambda-function
+      - uses: yvesgurcan/deploy-lambda-function@master
         with:
           package: lambda.zip
           function-name: 'telegram_bot'
