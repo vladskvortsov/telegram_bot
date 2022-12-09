@@ -19,5 +19,5 @@ jobs:
           aws_region: eu-west-2
           function_name: telegram_bot
 #          requirements_txt: 'requirements.txt'
-          source: lambda-function/lambda_function.py   
+          source: lambda-function/telegram_bot.py   
 #          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN}}
