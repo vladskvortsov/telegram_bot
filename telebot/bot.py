@@ -3,10 +3,7 @@ from telebot import TeleBot, types
 from telebot.custom_filters import TextFilter, TextMatchFilter, IsReplyFilter
 
 
-TOKEN = None
-
-with open("token") as f:
-    TOKEN = f.read().strip()
+TOKEN=os.environ["TELEGRAM_TOKEN"]
 
 
 bot = telebot.TeleBot(TOKEN)
