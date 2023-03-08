@@ -8,7 +8,7 @@ WORKDIR /telegram_bot
 
 ARG TELEGRAM_TOKEN
 
-ENV TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+ENV TELEGRAM_TOKEN ${{ secrets.TELEGRAM_TOKEN }}
 
 RUN apk --update add python3 py-pip && pip3 install -r requirements.txt
 
