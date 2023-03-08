@@ -2,6 +2,10 @@ FROM alpine:latest
 
 MAINTAINER vladskvortsov
 
+ARG TELEGRAM_TOKEN
+
+ENV TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+
 COPY bot.py requirements.txt token /telegram_bot/
 
 WORKDIR /telegram_bot
