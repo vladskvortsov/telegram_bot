@@ -24,7 +24,7 @@ jobs:
           context: ./telebot/        
           file: ./telebot/Dockerfile
           build-args: |
-            "TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}"
+            "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}"
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/telegram_bot:latest
 
