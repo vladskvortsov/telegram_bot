@@ -20,6 +20,8 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build and push
         uses: docker/build-push-action@v3
+        env:
+         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }} 
         with:
           context: ./telebot/
           file: ./telebot/Dockerfile
